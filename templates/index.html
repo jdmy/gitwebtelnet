@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div class="page-header" >
+    <!--<h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>-->
+    <!--<textarea readonly name="allCarbDiet" cols="150" rows="20">{% if res %}{{ res }}{% else %}NONE{% endif %}</textarea>-->
+
+    <pre id="shell">{% if res %}{{ res }}{% else %}NONE{% endif %}</pre>
+</div>
+<script>
+document.getElementById("demo").innerHTML="My First JavaScript";
+</script>
+{{ wtf.quick_form(form) }}
+{% endblock %}

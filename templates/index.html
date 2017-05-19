@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Telnet{% endblock %}
+
+{% block page_content %}
+<!--<style type="text/css">-->
+<!--pre{ }-->
+<!--</style>-->
+<div class="page-header" >
+    <!--<h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>-->
+    <!--<textarea readonly name="allCarbDiet" cols="150" rows="20">{% if res %}{{ res }}{% else %}NONE{% endif %}</textarea>-->
+
+    <pre id="shell" style="height:500px; overflow-y:auto">{% if res %}{{ res }}{% else %}NONE{% endif %}</pre>
+</div>
+<script>
+var ss=document.getElementById("shell");
+ss.scrollTop = ss.scrollHeight;
+window.onload = function()
+{
+    document.getElementById("cmd").focus();
+}
+<!--console.log(document.getElementsByClassname("page-header"));-->
+</script>
+<a href="{{url_for('logout')}}">Logout</a>
+{{ wtf.quick_form(form) }}
+
+{% endblock %}
